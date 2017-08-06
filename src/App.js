@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import {addTodo, deleteTodo } from './actions/todo'
+//import { Home } from './Home'
+import { About } from './About'
+import './App.css';
 
 
 class App extends Component {
@@ -17,8 +20,23 @@ class App extends Component {
       <div>
         Hello there {this.props.name}
         <div>
+
+        <Route path="/" exact render={() => (
+          <About />
+        )}/>
+        <Route path="/about" exact render={({history}) => (
+          <About />
+        )}/>
+
+        </div>
+      </div>
+    );
+  }
+}
+
+/*
           <ul>
-                         { 
+                { 
                    this.props.todos.map((todo) =>
                    (
                       <li key={todo.id}>
@@ -26,12 +44,7 @@ class App extends Component {
                       </li>
                    ))}
             </ul>
-        </div>
-      </div>
-    );
-  }
-}
-
+            */
 // With this we shape the data for the component
 function mapStateToProps(todoList) {
   return {

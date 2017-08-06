@@ -6,7 +6,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker'
 import { createStore, applyMiddleware, compose } from 'redux'
-import reducer from './reducers/todoReducer'
+import reducer from './reducers/todo'
 import { Provider } from 'react-redux'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 /*
@@ -21,8 +21,6 @@ registerServiceWorker();
 
 */
 
-
-import reducer from '../reducers'
 
 const logger = store => next => action => {
   console.group(action.type)
