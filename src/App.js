@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import {addTodo, deleteTodo } from './actions/todo'
-//import { Home } from './Home'
-import { About } from './About'
+import { connect } from 'react-redux';
+import {addTodo, deleteTodo } from './actions/todo';
+import  Home  from './Home'
+import  About  from './About';
 import './App.css';
 
 
@@ -22,12 +22,17 @@ class App extends Component {
         <div>
 
         <Route path="/" exact render={() => (
+          <Home />
+        )}/>
+        <Route path="/about" exact render={() => (
           <About />
         )}/>
-        <Route path="/about" exact render={({history}) => (
-          <About />
-        )}/>
-
+            <div className="link-top">
+              <Link to='/' className='open-search'>Home</Link>
+            </div>
+            <div className="link-bottom">
+              <Link to='/about' className='add-book'>About this</Link>
+            </div>
         </div>
       </div>
     );
