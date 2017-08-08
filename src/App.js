@@ -22,7 +22,7 @@ class App extends Component {
         <div>
 
         <Route path="/" exact render={() => (
-          <Home />
+          <Home todos={this.props.todos} />
         )}/>
         <Route path="/about" exact render={() => (
           <About />
@@ -39,17 +39,7 @@ class App extends Component {
   }
 }
 
-/*
-          <ul>
-                { 
-                   this.props.todos.map((todo) =>
-                   (
-                      <li key={todo.id}>
-                          {todo.task}
-                      </li>
-                   ))}
-            </ul>
-            */
+
 // With this we shape the data for the component
 function mapStateToProps(todoList) {
   return {

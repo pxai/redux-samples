@@ -5,6 +5,17 @@ class Home extends React.Component {
         return (
             <div id="home">
                 Welcome home
+                
+          <ul>
+                { 
+                   this.props.todos.map((todo) =>
+                   (
+                      <li key={todo.id}>
+                          {todo.task}
+                      </li>
+                   ))}
+            </ul>
+            
                 </div>
         )
     }
