@@ -1,21 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux'
+import {addTodo, deleteTodo } from './actions/todo'
+
 
 class App extends Component {
+  addTodo = () => {
+    this.props.addTodo({})
+  }
+  deleteTodo = () => {
+    this.props.deleteTodo({})
+  }
   render() {
+    console.log('Props', this.props)
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div>
+        Hello there {this.props.name}
+        <div>
+          <ul>
+                         { 
+                   this.props.todos.map((todo) =>
+                   (
+                      <li key={todo.id}>
+                          {todo.task}
+                      </li>
+                   ))}
+            </ul>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
 }
 
-export default App;
+// With this we shape the data for the component
+function mapStateToProps(todoList) {
+  return {
+    name: todoList.name,
+    todos: todoList.todos
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    addTodo: (data) => dispatch(addTodo(data)),
+    deleteTodo: (data) => dispatch(deleteTodo(data))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

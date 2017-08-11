@@ -1,17 +1,31 @@
-function todoReducer (state, action) {
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  UPDATE_TODO
+} from '../actions/todo'
+
+const initialTodoState = {
+  name: 'My ToDo List',
+  todos: [
+    {"id": 1, "task": "Learn Redux"},
+    {"id": 2, "task": "Learn Ruby"}
+    ]
+};
+
+export default function todoList (state = initialTodoState, action) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ADD_TODO:
       return {
           ...state.todos,
           ...action.todo
       };
-    case 'DELETE_TODO':
+    case DELETE_TODO:
       return state.todos.filter(elem => elem.id !== action.todo.id);
-    case 'UPDATE_TODO':
+    case UPDATE_TODO:
       return state.todos.map( (elem) => {
                 if(elem.id !== action.todo.id) {
                     // This isn't the item we care about - keep it as-is
-                    return item;
+                    return elem;
                 }
                 
                 // Otherwise, this is the one we want - return an updated value

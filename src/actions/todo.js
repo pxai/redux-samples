@@ -1,22 +1,22 @@
-const ADD_TODO = 'ADD_TODO'
-const DELETE_TODO = 'DELETE_TODO'
-const UPDATE_TODO = 'UPDATE_TODO'
+export const ADD_TODO = 'ADD_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
+export const UPDATE_TODO = 'UPDATE_TODO'
 
-function addTodo(todo) {
+export function addTodo (todo) {
     return {
         type: ADD_TODO,
         todo
     }
 }
 
-function deleteTodo(todo) {
+export function deleteTodo(todo) {
     return {
         type: DELETE_TODO,
         todo
     }
 }
 
-function updateTodo (todo) {
+export function updateTodo (todo) {
     return {
         type: UPDATE_TODO,
         todo
