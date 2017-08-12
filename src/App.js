@@ -8,9 +8,11 @@ import './App.css';
 
 
 class App extends Component {
-  addTodo = () => {
-    this.props.addTodo({})
+  addTodo = (todo) => {
+    this.props.addTodo({todo})
   }
+
+
   deleteTodo = () => {
     this.props.deleteTodo({})
   }
@@ -22,7 +24,7 @@ class App extends Component {
         <div>
 
         <Route path="/" exact render={() => (
-          <Home todos={this.props.todos} />
+          <Home todos={this.props.todos} addTodo={this.addTodo} />
         )}/>
         <Route path="/about" exact render={() => (
           <About />
