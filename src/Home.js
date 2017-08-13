@@ -21,7 +21,7 @@ class Home extends React.Component {
                 { 
                    this.props.todos.map((todo) =>
                    (
-                      <li key={todo.id}>
+                      <li key={todo.id} onClick={this.props.deleteTodo(todo)}>
                           {todo.task}
                       </li>
                    ))}

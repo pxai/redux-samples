@@ -9,12 +9,13 @@ import './App.css';
 
 class App extends Component {
   addTodo = (todo) => {
-    this.props.addTodo({todo})
+    this.props.addTodo(todo)
   }
 
 
-  deleteTodo = () => {
-    this.props.deleteTodo({})
+  deleteTodo = (todo) => {
+    console.log('Delete in App', todo)
+    this.props.deleteTodo(todo)
   }
   render() {
     console.log('Props', this.props)
@@ -24,7 +25,7 @@ class App extends Component {
         <div>
 
         <Route path="/" exact render={() => (
-          <Home todos={this.props.todos} addTodo={this.addTodo} />
+          <Home todos={this.props.todos} addTodo={this.addTodo} deleteTodo={this.deleteTodo} />
         )}/>
         <Route path="/about" exact render={() => (
           <About />

@@ -16,16 +16,16 @@ export default function todoList (state = initialTodoState, action) {
 
   switch (action.type) {
     case ADD_TODO:
-   console.log('Todo list action:', action.todo.todo.id)
       return {
           ...state, 
             todos: [
               ...state.todos,
-              action.todo.todo
+              action.todo
           ]
       };
     case DELETE_TODO:
-      return state.todos.filter(elem => elem.id !== action.todo.id);
+     return state
+     // return state.todos.filter(elem => elem.id !== action.todo.todo.id);
     case UPDATE_TODO:
       return state.todos.map( (elem) => {
                 if(elem.id !== action.todo.id) {
