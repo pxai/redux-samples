@@ -1,5 +1,7 @@
 {
   "name": "redux-samples",
+  "author": "pxai",
+  "repository": "https://github.com/pxai/redux-samples",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
